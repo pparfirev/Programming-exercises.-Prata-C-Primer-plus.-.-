@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1645710665 source:e:\progs\prata\6.14\main.c
+	<stdio.h>
+	<stdlib.h>
+
