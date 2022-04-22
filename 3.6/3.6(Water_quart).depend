@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1636463220 source:e:\progs\prata\3.6(water_quart)\main.c
+	<stdio.h>
+	<stdlib.h>
+
