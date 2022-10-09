@@ -1,4 +1,4 @@
-/* global.c -- использование внешней переменной */
+/* global.c -- РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РІРЅРµС€РЅРµР№ РїРµСЂРµРјРµРЅРЅРѕР№ */
 #include <stdio.h>
 #include <stdlib.h>
 //int units = 0; // External variable
