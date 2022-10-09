@@ -8,7 +8,7 @@
     13 8 14
 Введите количество бросаний или q для завершения: q */
 
-/* êîìïèëèðîâàòü âìåñòå ñ 12.7.1.c */
+/* компилировать вместе с 12.7.1.c */
 #include <stdio.h>
 #include <stdlib.h> // for func srand()
 #include <time.h> // for func time()
