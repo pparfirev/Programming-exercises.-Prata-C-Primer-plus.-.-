@@ -1,3 +1,6 @@
+/* Переделайте задание из вопроса 5 таким образом, чтобы артуменг был представлен
+названием месяца, а не его номером. (Не забывайте о функции strcmp ().)
+Протестируйте готовую функцию в простой программе. */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -30,7 +33,6 @@ int main()
     puts("Enter the name of month to get number of days since start of the year: ");
     scanf("%s", &ent_month);
     int days = days_m(ent_month);
-    //puts(ent_month);
     printf("Total days: %d.\n", days);
     return 0;
 }
