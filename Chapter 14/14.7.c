@@ -35,11 +35,11 @@ int main()
         exit(1);
     }
     rewind(pbooks); // Go at the start of file
+    puts("Now file book.txt has: ");
     while(count < MAXBKS && fread(&library[count],
                                   size, 1, pbooks) == 1)
     {
-        if(count == 0)
-            puts("Now file book.txt has: ");
+        if(library[count].title[0] != NULL) // Drop empty elements of list
         printf("%s author %s: $%.2f\n", library[count].title,
                library[count].author, library[count].value);
                count++;
@@ -59,18 +59,16 @@ int main()
     puts("Or Enter empty string to stop entering and exit");
     while(s_gets(ent, MAXTITL) != NULL && ent[0] != '\0')
     {
-       // printf("%s", ent);
         for(int n = 0; n < count; n++)
         {
-
-            if(strcmp(library[n].title, ent) == 0)
+            if(strcmp(library[n].title, ent) == 0) // If entered string is on the filelist
             {
                 puts("What would you do with this book?");
                 puts("Enter \"0\" for delete or \"1\" for editing");
                     scanf("%d", &del);
                     while(getchar() != '\n')
                                 continue;
-                    if(del == 1)
+                    if(del == 1) // Edit the entered book
                     {
                         puts("Enter new title of book: ");
                         s_gets(library[n].title, MAXTITL);
@@ -79,18 +77,18 @@ int main()
                         puts("Enter the price of book: ");
                         scanf("%f", &library[n].value);
                                 while(getchar() != '\n')
-                                continue; // ÑleanUp enter string
+                                continue; // СleanUp enter string
                     }
-                    if(del == 0)
+                    if(del == 0) // Or deleting book
                     {
                         for(int y = n; y < count; y++)
                         {
-                            if(y + 1 != count)
+                            if(y + 1 != count) // Shifting array elements
                             library[y] = library[y + 1];
 
                         }
-                        count--;
-                        del_c++;
+                        count--; //decrease counter
+                        del_c++; // increase delete counter
                     }
             }
         }
@@ -100,13 +98,14 @@ int main()
     }
     if(count > 0)
     {
-        puts("Catalog of your books");
+        puts("Catalog of your books: ");
         for(index = 0; index < count; index++)
+            if(library[index].title[0] != NULL) // drop the empty list
              printf("%s author %s: $%.2f\n", library[index].title,
                library[index].author, library[index].value);
                rewind(pbooks);
-        fwrite(&library[0], size, count, pbooks);
-        fwrite(&library[filecount], size, del_c, pbooks);
+        fwrite(&library[0], size, count, pbooks); // rewrite structure to the file
+        fwrite(&library[filecount], size, del_c, pbooks); // rewrite extra elements from file
     }
     else
         puts("Now books? Very Sad.\n");
@@ -130,3 +129,4 @@ char *s_gets(char *st, int n)
     }
     return ret_val;
 }
+
