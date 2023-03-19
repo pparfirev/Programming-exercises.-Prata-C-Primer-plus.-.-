@@ -1,3 +1,4 @@
+// Thanks user tthoraldson for code example
 #include <stdio.h>
 #include <stdlib.h>     // for rand() and srand()
 #include <time.h>       // for time()
